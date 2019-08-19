@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Launchs from 'components/Launchs'
 import { View, Text, StyleSheet } from 'react-native';
-
+import Launchs from 'components/Launchs'
 
 export default class LaunchList extends Component {
 
@@ -23,7 +22,7 @@ export default class LaunchList extends Component {
 
 const styles = StyleSheet.create({
     header: {
-        padding: 40,
+        padding: 20,
         fontSize: 30,
         textAlign: 'center',
         color: '#0066CC',

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { TextInput, View, StyleSheet, FlatList } from 'react-native';
+import { TextInput, View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import LaunchRow from 'components/LaunchRow';
 
 export default class Launchs extends Component {
     state = {
+        error: false,
         isLoading: true,
         search: null,
         launchs: [],
@@ -26,8 +27,16 @@ export default class Launchs extends Component {
                     placeholder='Search Launch'
                     value={this.state.search}
                 />
+                {
 
+                    this.state.isLoading && (
+                        <View>
+                            <ActivityIndicator />
+                        </View>
+                    )
+                }
                 <FlatList
+                    style={styles.launchs}
                     data={this.state.launchs.filter(launch => {
                         return !this.state.search
                             || launch.mission_name.toLowerCase().indexOf(this.state.search.toLowerCase()) > -1
@@ -58,6 +67,12 @@ const styles = StyleSheet.create({
         color: '#000',
         borderColor: '#ddd',
         backgroundColor: '#f5f5f5',
-        borderRadius: 40
+        borderRadius: 40,
+        marginBottom: 10,
+    },
+    launchs: {
+        borderColor: '#fff',
+        borderRadius: 10,
+        borderWidth: 1,
     }
 })

@@ -8,7 +8,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 class LaunchRow extends Component {
 
     naivgatetoInfo = () => this.props.navigation.navigate('Info', {
-        launch: this.props.launch
+        launch: this.props.launch,
+        title: this.props.launch.mission_name
     })
 
     render() {

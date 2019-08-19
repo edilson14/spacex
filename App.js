@@ -8,16 +8,16 @@ import {
 } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-import LaunchList from 'components/LaunchList';
-import AboutApp from 'components/AboutApp';
-import LaunchInfo from 'components/LaunchInfo'
+import LaunchList from 'screens/LaunchList';
+import AboutApp from 'screens/AboutApp';
+import LaunchInfo from 'screens/LaunchInfo'
 
 const AppContainer = createStackNavigator({
   Home: { screen: LaunchList },
   Info: { screen: LaunchInfo }
 }, {
     defaultNavigationOptions: {
-      header: null
+      // header: null
     }
   }
 )

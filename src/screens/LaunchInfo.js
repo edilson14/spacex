@@ -3,8 +3,18 @@ import { View, Text, ScrollView, Image, StyleSheet, TouchableOpacity } from 'rea
 
 export default class LaunchInfo extends Component {
 
+    state = {
+        launch: {},
+    }
+
+    static navigationOptions = ({ navigation }) => ({
+        title: `${navigation.state.params.title}`
+    })
+
     render() {
-        const launch = this.props.navigation.getParam('launch');
+        // debugger
+        // console.log(this.state.launch)
+        const launch = this.props.navigation.getParam('launch')
         return (
             <ScrollView style={styles.main}>
 
@@ -35,6 +45,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column'
     },
     image: {
+        alignSelf: 'center',
         width: 100,
         height: 100,
         margin: 20,
@@ -43,7 +54,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     detailsText: {
-        fontSize: 24,
+        fontSize: 12,
         color: '#000'
     }
 }) 
