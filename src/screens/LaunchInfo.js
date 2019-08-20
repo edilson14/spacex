@@ -4,7 +4,19 @@ import { View, Text, ScrollView, Image, StyleSheet, TouchableOpacity } from 'rea
 export default class LaunchInfo extends Component {
 
     state = {
-        launch: {},
+        launch: [],
+    }
+    constructor(props) {
+        super(props)
+        this.state = {
+            launch: this.props.navigation.getParam('launch')
+        }
+    }
+
+    openArticle = () => {
+        this.props.navigation.navigate('Article', {
+            link: this.state.launch.links.article_link
+        });
     }
 
     static navigationOptions = ({ navigation }) => ({
@@ -14,22 +26,31 @@ export default class LaunchInfo extends Component {
     render() {
         // debugger
         // console.log(this.state.launch)
-        const launch = this.props.navigation.getParam('launch')
+        // const launch = this.props.navigation.getParam('launch')
         return (
             <ScrollView style={styles.main}>
 
                 <View style={styles.header}>
                     <Image
                         source={{
-                            uri: `${launch.links.mission_patch}`
+                            uri: `${this.state.launch.links.mission_patch}`
                         }}
                         style={styles.image}
                         resizeMode="contain"
                     />
                     <View style={styles.details}>
-                        <Text style={styles.detailsText}>{launch.details ? launch.details : 'No Details'}</Text>
+                        <Text style={styles.detailsText}>{this.state.launch.details ? this.state.launch.details : 'No Details'}</Text>
+
+                        <TouchableOpacity style={styles.button}
+                            onPress={this.openArticle}
+                        >
+                            <Text style={styles.buttonText}>Read Article</Text>
+                        </TouchableOpacity>
                     </View>
+
+
                 </View>
+
             </ScrollView>
         )
     }
@@ -56,5 +77,20 @@ const styles = StyleSheet.create({
     detailsText: {
         fontSize: 12,
         color: '#000'
+    },
+    button: {
+
+        marginTop: 10,
+        borderWidth: 1,
+        borderColor: '#0066CC',
+        borderRadius: 14,
+        // paddingHorizontal: 10,
+        paddingVertical: 3,
+        backgroundColor: '#fff'
+    },
+    buttonText: {
+        color: '#0066CC',
+        fontSize: 12,
+        textAlign: 'center'
     }
-}) 
+})

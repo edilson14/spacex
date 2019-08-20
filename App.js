@@ -10,17 +10,15 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 import LaunchList from 'screens/LaunchList';
 import AboutApp from 'screens/AboutApp';
-import LaunchInfo from 'screens/LaunchInfo'
+import LaunchInfo from 'screens/LaunchInfo';
+import Article from 'screens/Article';
 
 const AppContainer = createStackNavigator({
   Home: { screen: LaunchList },
-  Info: { screen: LaunchInfo }
-}, {
-    defaultNavigationOptions: {
-      // header: null
-    }
-  }
-)
+  Info: { screen: LaunchInfo },
+  Article: { screen: Article }
+
+})
 
 const TabNavigator = createBottomTabNavigator({
   Launchs: { screen: AppContainer },

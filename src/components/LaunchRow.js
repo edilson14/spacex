@@ -3,8 +3,6 @@ import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-
-
 class LaunchRow extends Component {
 
     naivgatetoInfo = () => this.props.navigation.navigate('Info', {
@@ -13,7 +11,7 @@ class LaunchRow extends Component {
     })
 
     render() {
-        const { launch, index } = this.props;
+        const { launch } = this.props;
 
         const name = launch.launch_success ? 'check' : 'close'
         return (
