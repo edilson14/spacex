@@ -6,6 +6,7 @@ export default class LaunchInfo extends Component {
 
     state = {
         launch: [],
+        loadingVideo: true,
         height: 200
     }
     constructor(props) {
@@ -13,13 +14,11 @@ export default class LaunchInfo extends Component {
         this.state = {
             launch: this.props.navigation.getParam('launch'),
         }
-        // debugger
-        // console.log('links ',this.state.launch.links.video_link)
     }
 
     //como os controllers não aparecem , então da um time out para redemencionar a mostar
     showPlayerController = () => {
-        setTimeout(() => this.setState({ height: 220 }), 500)
+        setTimeout(() => this.setState({ height: 220, loadingVideo: false }), 500)
     }
 
     openArticle = () => {
@@ -33,9 +32,6 @@ export default class LaunchInfo extends Component {
     })
 
     render() {
-        // debugger
-        // console.log(this.state.launch)
-        // const launch = this.props.navigation.getParam('launch')
         return (
             <ScrollView style={styles.main}>
 
