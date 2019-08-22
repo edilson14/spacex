@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     header: {
         marginVertical: 20,
         textAlign: 'center',
-        fontSize: 20
+        fontSize: 25
     },
     icon: {
         marginVertical: 20,
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     },
     text: {
         textAlign: "center",
-        fontSize: 15,
+        fontSize: 19,
         color: '#444',
         marginTop: 20
     },
@@ -112,13 +112,12 @@ const styles = StyleSheet.create({
     },
     linkButton: {
         marginTop: 10,
-        borderWidth: 1,
-        borderRadius: 14,
-        borderColor: '#06C'
+        borderRadius: 50
     },
     linksText: {
         textAlign: "center",
-        fontSize: 12,
-        color: '#06C'
+        fontSize: 15,
+        color: '#06C',
+        textDecorationLine: 'underline'
     }
 })
